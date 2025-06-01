@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h3>Editar Producto</h3>
+            </div>
+            <div class="card-body">
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                <% } %>
+
+                <form action="/products/<%= product._id %>" method="POST">
+                    <div class="mb-3">
+                        <label for="sku" class="form-label">SKU</label>
+                        <input type="text" class="form-control" id="sku" name="sku" value="<%= product.sku %>" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= product.name %>" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" required><%= product.description %></textarea>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="price" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" value="<%= product.price %>" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="quantity" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" min="0" value="<%= product.quantity %>" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="category" class="form-label">Categoría</label>
+                            <input type="text" class="form-control" id="category" name="category" value="<%= product.category %>" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="brand" class="form-label">Marca</label>
+                            <input type="text" class="form-control" id="brand" name="brand" value="<%= product.brand %>" required>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Actualizar Producto</button>
+                        <a href="/products" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
